@@ -16,7 +16,6 @@
   height: 64px;
   background: rgba(0, 0, 0, 0.92);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-  border-radius: 0 0 4px 4px;
   overflow: hidden;
 }
 
@@ -95,7 +94,6 @@
 .series-pip {
   width: 8px;
   height: 8px;
-  border-radius: 50%;
   background: rgba(255, 255, 255, 0.18);
   transition: background 160ms ease-out;
 }
@@ -129,7 +127,6 @@
   left: 24px;
   background: rgba(0, 0, 0, 0.92);
   padding: 10px 18px 12px;
-  border-radius: 8px;
   text-align: left;
   min-width: 240px;
 }
@@ -175,7 +172,6 @@
   margin-top: 10px;
   height: 18px;
   background: rgba(255, 255, 255, 0.12);
-  border-radius: 9px;
   overflow: hidden;
 }
 
@@ -214,7 +210,6 @@
   background: rgba(0, 0, 0, 0.92);
   border-left: 3px solid #ffd23a;
   padding: 8px 14px;
-  border-radius: 6px;
   font-size: 1rem;
   font-weight: 500;
   min-width: 180px;
@@ -262,14 +257,6 @@
   min-width: 160px;
 }
 
-.team-roster-left .roster-card {
-  border-radius: 0 6px 6px 0;
-}
-
-.team-roster-right .roster-card {
-  border-radius: 6px 0 0 6px;
-}
-
 .roster-name {
   font-size: 0.85rem;
   font-weight: 600;
@@ -283,7 +270,6 @@
   position: relative;
   height: 14px;
   background: rgba(255, 255, 255, 0.12);
-  border-radius: 7px;
   overflow: hidden;
 }
 
@@ -306,3 +292,149 @@
   font-variant-numeric: tabular-nums;
 }
 
+.replay-card {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.92);
+  padding: 10px 18px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  animation: replay-card-in 220ms ease-out;
+}
+
+.replay-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff2a2a;
+  box-shadow: 0 0 8px rgba(255, 42, 42, 0.85);
+  animation: replay-pulse 1s ease-in-out infinite;
+}
+
+.replay-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+@keyframes replay-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes replay-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.replay-goal-card {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(0, 0, 0, 0.92);
+  padding: 10px 22px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+  animation: replay-goal-in 220ms ease-out;
+  transform: translate(-50%, 0);
+}
+
+.replay-goal-speed {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #ff2a2a;
+  font-variant-numeric: tabular-nums;
+}
+
+.replay-goal-divider {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.replay-goal-scorer {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.replay-goal-assister {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+@keyframes replay-goal-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.stinger {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: stinger-bg 900ms ease-out forwards;
+}
+
+.stinger-text {
+  font-size: clamp(4rem, 12vw, 12rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: #fff;
+  white-space: nowrap;
+  text-transform: uppercase;
+  animation: stinger-slide 900ms cubic-bezier(0.5, 0, 0.75, 0) forwards;
+}
+
+@keyframes stinger-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(120vw);
+  }
+}
+
+@keyframes stinger-bg {
+  0%,
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
