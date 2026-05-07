@@ -59,6 +59,10 @@ Each component lives in `src/components` and subscribes to the Octane hooks itse
 | ✨ `Stinger` | `useOctaneState`, `useOctaneGameState` | Full-screen sweep on replay enter and replay end |
 | 📢 `StatToasts` | `useOctaneState`, `useOctaneEvents` | Auto-expiring statfeed pop-ups |
 
+## Known Issues
+
+Currently, the GoalReplayStart, GoalReplayWillEnd, and GoalReplayEnd events are not correctly implemented in the Rocket League Stats API. Therefor the example, and the react package, are unable to provide these. I left a message on X, hopefully they will fix it soon.
+
 ## 🤝 Contributing
 
 PRs welcome! 💚 Please run `npm run build` before opening one to make sure the overlay still compiles.
